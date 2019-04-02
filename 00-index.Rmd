@@ -1,0 +1,30 @@
+---
+title: "Unit tests workshops agenda"
+author: "Kamil Foltyński"
+date: "11/12/2018"
+output:
+  html_document
+runtime: shiny
+---
+
+Agenda:
+
+* Intro
+* Why do unit testing?
+* Correct R package structure? 
+  * How to start if we don't have valid structure yet? `devtools::use_testthat()`
+* 
+* 
+* 
+* 
+* Test driven development
+  * What is that?
+  * When to use - examples
+* [R packages](r-packages.Rmd)
+
+TODOs:
+
+* UI tests example
+* sprint planning
+
+    
