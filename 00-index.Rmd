@@ -13,9 +13,26 @@ Agenda:
 * Why do unit testing?
 * Correct R package structure? 
   * How to start if we don't have valid structure yet? `devtools::use_testthat()`
-* 
-* 
-* 
+  * Common commands and shortcuts to run unit tests
+    * Mention also about skipping tests, testing single files, whole dirs
+  * Practical task
+* Test structure
+  * `testthat` functions
+* Exceptions
+  * Why should we care?
+  * Catching exceptions - examples
+  * Testing exceptions
+  * Practical task
+* Reference data
+  * Why should we care?
+  * How to prepare reference data
+    * `dput`, `.Rdata`/`.RDS`, `.png` (because it's lossless)
+    * remember about `set.seed` when sampling some data (--> plotly task)
+    * `system.file`
+* How to test?
+  * split big functionalities into separate test, e.g. 1st test connection to db, 2nd test function on prepared ref data from db
+  * expect, expect, expect
+  * code coverage
 * 
 * Test driven development
   * What is that?
@@ -23,8 +40,5 @@ Agenda:
 * [R packages](r-packages.Rmd)
 
 TODOs:
-
-* UI tests example
-* sprint planning
 
     
