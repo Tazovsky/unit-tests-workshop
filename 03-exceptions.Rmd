@@ -1,0 +1,39 @@
+---
+title: "Exceptions"
+author: "Kamil Foltyński"
+date: "03/04/2019"
+output:
+  html_document:
+    fig_caption: yes
+    keep_md: no
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+runtime: shiny
+---
+
+# What is exception?
+
+Definition:
+
+> Definition: An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions.
+
+
+# Why should we care?
+
+# Exception handling
+
+
+
+# Exception testing
+
+* When we can except
+
+```{r}
+
+```
+
+
+
+
