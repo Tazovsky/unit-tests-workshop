@@ -1,5 +1,5 @@
 ---
-title: "Unit tests workshops agenda"
+title: "Unit tests workshops"
 author: "Kamil Foltyński"
 date: "11/12/2018"
 output:
@@ -10,6 +10,10 @@ runtime: shiny
 Agenda:
 
 * Intro
+  * Instal helper R package: 
+  ```{r,eval=FALSE}
+  devtools::install("unitTestsWorkshopPackage/")
+  ```
 * [Why do unit testing?](why-do-unit-testing.Rmd)
 * [Correct R package structure](correct-structure.Rmd)
   * How to start if we don't have valid structure yet? `devtools::use_testthat()`
