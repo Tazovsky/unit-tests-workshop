@@ -16,8 +16,8 @@ Agenda:
   * Common commands and shortcuts to run unit tests
     * Mention also about skipping tests, testing single files, whole dirs
   * Practical task
-* Test structure
-  * `testthat` functions
+  * Test structure
+    * `testthat` functions
 * Exceptions
   * Why should we care?
   * Catching exceptions - examples

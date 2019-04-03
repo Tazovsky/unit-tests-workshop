@@ -73,14 +73,6 @@ Typical RStudio workflow:
 
 ... and repeat until all unit tests work.
 
-# Practice
-
-1. clone repo
-
-2. create `testthat` structure
-
-3. TODO..
-
 # `testthat` functions
 
 * `testthat::expect_true(object/contition)`
@@ -88,28 +80,40 @@ Typical RStudio workflow:
 * `testthat::expect_indentical(object, expected)`
   * be careful with `expect_indentical` -  see example:
 
-```{r, error=TRUE}
-dt_iris <- data.table::data.table(iris)
-
-testthat::expect_identical(dt_iris, data.table::data.table(iris))
-testthat::expect_equal(dt_iris, data.table::data.table(iris))
-
-saveRDS(dt_iris, file = "dt_iris.RDS")
-
-# after reseting R session
-dt_iris <- readRDS("dt_iris.RDS")
-testthat::expect_identical(dt_iris, data.table::data.table(iris))
-testthat::expect_equal(dt_iris, data.table::data.table(iris))
-
-str(dt_iris)
-
-attributes(dt_iris)$.internal.selfref
-attributes(data.table::data.table(iris))$.internal.selfref
-```
+  ```{r, error=TRUE}
+  dt_iris <- data.table::data.table(iris)
   
+  testthat::expect_identical(dt_iris, data.table::data.table(iris))
+  testthat::expect_equal(dt_iris, data.table::data.table(iris))
+  
+  saveRDS(dt_iris, file = "dt_iris.RDS")
+  
+  # after reseting R session
+  dt_iris <- readRDS("dt_iris.RDS")
+  testthat::expect_identical(dt_iris, data.table::data.table(iris))
+  testthat::expect_equal(dt_iris, data.table::data.table(iris))
+  
+  str(dt_iris)
+  
+  attributes(dt_iris)$.internal.selfref
+  attributes(data.table::data.table(iris))$.internal.selfref
+  ```
+  
+  because it also compares objects' attributes
 
+* `testthat::skip_if`, `testthat::skip_if_not`
+  * tests can be skipped, for example some test may not be valid on specific envornment:
+    * **example #1**: if we running code locally we may not have access to production DB and we use local one which has different type, e.g. is conainerized
+    * **example #2**: locally LDAP authetntication doesn't work, so we can't test reading login anywhere else than on server
+* `testthat::capture_messages` log messages can also be tested
 
+# Practice
 
+1. clone repo
+
+2. create `testthat` structure
+
+3. TODO..
 
 # Sources
 
