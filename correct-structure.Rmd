@@ -1,0 +1,116 @@
+---
+title: "Correct R package structure"
+author: "Kamil Foltyński"
+date: "03/04/2019"
+output:
+  html_document:
+    fig_caption: yes
+    keep_md: no
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+runtime: shiny
+---
+
+* How to start if we don't have valid structure yet? `devtools::use_testthat()`
+  * Common commands and shortcuts to run unit tests
+    * Mention also about skipping tests, testing single files, whole dirs
+
+
+# `testthat` - R package for unit testing
+
+Package `testthat` provides framework and multiple functions for unit testing. To start using it 
+we need following R pacakge structure:
+
+
+```bash
+spendworx
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+├── inst
+├── man
+├── spendworx.Rproj
+└── tests
+    ├── testthat # <-- tests goes there
+    │   └── test_sankey_plot.R
+    └── testthat.R
+```
+
+where `tests` directory and its content can be created using `devtools::use_testthat()` if not exists. 
+Test script names must start with **test**.
+
+Test files should contain `content` whis is short decription of its content. 
+To create test we use `test_that` function.
+
+Example test:
+
+```r
+context("String length")
+library(stringr)
+
+test_that("str_length is number of characters", {
+  expect_equal(str_length("a"), 1)
+  expect_equal(str_length("ab"), 2)
+  expect_equal(str_length("abc"), 3)
+})
+
+```
+
+# Make life easier in RStudio
+
+Shortcuts:
+
+Run tests: `Ctrl+Shift+T` (Windows/Linux) or `Cmd+Shift+T` (Mac)
+
+Typical RStudio workflow:
+
+* Write function
+* Run tests: `Ctrl+Shift+T`
+  * if tests passed then continue
+  * else make fixes in function and run tests `Ctrl+Shift+T`
+
+... and repeat until all unit tests work.
+
+# Practice
+
+1. clone repo
+
+2. create `testthat` structure
+
+3. TODO..
+
+# `testthat` functions
+
+* `testthat::expect_true(object/contition)`
+* `testthat::expect_equal(object, expected)`
+* `testthat::expect_indentical(object, expected)`
+  * be careful with `expect_indentical` -  see example:
+
+```{r, error=TRUE}
+dt_iris <- data.table::data.table(iris)
+
+testthat::expect_identical(dt_iris, data.table::data.table(iris))
+testthat::expect_equal(dt_iris, data.table::data.table(iris))
+
+saveRDS(dt_iris, file = "dt_iris.RDS")
+
+# after reseting R session
+dt_iris <- readRDS("dt_iris.RDS")
+testthat::expect_identical(dt_iris, data.table::data.table(iris))
+testthat::expect_equal(dt_iris, data.table::data.table(iris))
+
+str(dt_iris)
+
+attributes(dt_iris)$.internal.selfref
+attributes(data.table::data.table(iris))$.internal.selfref
+```
+  
+
+
+
+
+# Sources
+
+* http://r-pkgs.had.co.nz/tests.html
