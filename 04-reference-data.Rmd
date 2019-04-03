@@ -70,7 +70,87 @@ and pasted into test script...
   </details>
   <br>
 
-  In such cases it's worth keeping reference data in R formats such as `.rds`/`.RData`.
+  In such cases it's worth keeping reference data in R formats such as `.rds`/`.RData`. 
+  
+  But when we work with R package test data should always go with package, because when installing R package 
+  on multiple environments we can run unit tests to see whether everything works properly or not. 
+  **So where test data should be stored**? Every package is installed together with `inst` directory. 
+  The recommended location for test data is `inst/testdata` directory in R package. 
+  
+  To get path to reference data `system.file` functionshould be used:
+  
+  ```{r,eval=FALSE}
+  ref_data <- system.file(file.path("testdata", "test_data.rds"), package = "SpendWorx")
+  testthat::expect_equal(functionTotest(), ref_data)
+  ```
+  
+* `snapshot`/`screenshot` - sometimes we want to would like to test output from plotting function. 
+The simplest way to do that is comparing screenshots of plot:
+
+  ```{r,eval=FALSE}
+  testthat::context("Testing plot(s) output")
+  
+  testthat::test_that("plotly renders correctly", {
+  library(plotly)
+  
+  target.path <- file.path("inst", "testdata", "plot1.png") 
+  
+  p <- economics %>% plot_ly(x = ~date, y = ~unemploy/pop) %>% add_lines()
+  
+  # compareImages function already contains testing function testthat::expect_lte
+  unitTestsWorkshopPackage::compareImages(takeScreenshot(p), target.path)
+  })
+  ```
+
+# Recreating reference data
+
+> _Along with development process, code changes, but its behaviour and results should not - 
+and **if they must change, let them change into a way we control**_. 
+
+Code is being improved, it evolves and there will always be a moment when 
+results, outputs change (but we konw about that, **it is a conscious change**), 
+so reference data must be updated. I really like approach where developer 
+puts few lines of **code to easily recreate reference data**.
+
+For example, if we go back to plotly unit test, the whole test could look like this:
+
+```{r,eval=FALSE}
+  testthat::context("Testing plot(s) output")
+  
+  testthat::test_that("plotly renders correctly", {
+    library(plotly)
+    
+    target.path <- system.file(file.path("testdata", "plot1.png"), package = "unitTestsWorkshopPackage")
+    
+    p <- economics %>% plot_ly(x = ~date, y = ~unemploy/pop) %>% add_lines()
+    
+    # compareImages function already contains testing function testthat::expect_lte
+    unitTestsWorkshopPackage::compareImages(takeScreenshot(p), target.path)
+    
+    # following code recreates reference screenshot
+    if (exists("RECREATE_REF_DATA") && isTRUE(RECREATE_REF_DATA)) {
+      
+      message("Recreating plotly reference screenshot...")
+      
+      testdata_dir <- file.path("unitTestsWorkshopPackage", "inst", "testdata")
+      
+      if (!dir.exists(file.path(testdata_dir)))
+        dir.create(file.path(testdata_dir), recursive = TRUE)
+      
+      target.path <- file.path(testdata_dir, "plot1.png") 
+      
+      unitTestsWorkshopPackage::takeScreenshot(p, target.path)
+    }
+  })
+  ```
+  
+  so to recreate reference screenshot just set `RECREATE_REF_DATA` to `TRUE` and run test.
+
+# Practice
+
+test `renderPlot` output; boxplot with jitter
+
+
 
 
 * Why should we care?
