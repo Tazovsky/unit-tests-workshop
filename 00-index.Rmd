@@ -18,17 +18,12 @@ Agenda:
   * Practical task
   * Test structure
     * `testthat` functions
-* Exceptions
+* [Exceptions](03-exceptions.Rmd)
   * Why should we care?
   * Catching exceptions - examples
   * Testing exceptions
   * Practical task
-* Reference data
-  * Why should we care?
-  * How to prepare reference data
-    * `dput`, `.Rdata`/`.RDS`, `.png` (because it's lossless)
-    * remember about `set.seed` when sampling some data (--> plotly task)
-    * `system.file`
+* [Reference data](04-reference-data.Rmd)
 * How to test?
   * split big functionalities into separate test, e.g. 1st test connection to db, 2nd test function on prepared ref data from db
   * expect, expect, expect

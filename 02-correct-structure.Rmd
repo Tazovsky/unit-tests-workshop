@@ -109,11 +109,11 @@ Typical RStudio workflow:
 
 # Practice
 
-1. clone repo
+1. clone example repo
 
 2. create `testthat` structure
 
-3. TODO..
+3. capture function logs
 
 # Sources
 
