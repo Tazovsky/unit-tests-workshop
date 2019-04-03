@@ -17,8 +17,6 @@ runtime: shiny
 knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 ```
 
-
-
 # What is reference data? And why should we care?
 
 Along with development process, code changes, but its behaviour and results should not - 

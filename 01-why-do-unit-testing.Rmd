@@ -13,6 +13,9 @@ output:
 runtime: shiny
 ---
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = ">")
+```
 
 # Why do unit testing?
 

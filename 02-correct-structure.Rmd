@@ -13,6 +13,10 @@ output:
 runtime: shiny
 ---
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = ">")
+```
+
 * How to start if we don't have valid structure yet? `devtools::use_testthat()`
   * Common commands and shortcuts to run unit tests
     * Mention also about skipping tests, testing single files, whole dirs
