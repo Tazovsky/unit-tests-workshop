@@ -1,0 +1,85 @@
+---
+title: "Reference data"
+author: "Kamil Foltyński"
+date: "03/04/2019"
+output:
+  html_document:
+    fig_caption: yes
+    keep_md: no
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+runtime: shiny
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = ">")
+```
+
+
+
+# What is reference data? And why should we care?
+
+Along with development process, code changes, but its behaviour and results should not - 
+and if they must change, let them change into a way we control. 
+
+Reference data is used as input for unit tests. It's frozen, so it ensures **reproducibility** of results.
+During development process **code changes**, but thanks to **reproducibility** it is possible to run 
+code (with reference data as input) and **always get same, unchanged results**. However if results vary, then
+it's a sign something went wrong and code is broken.
+
+# How to prepare reference data?
+
+* `dput` - the easiest way to prepare reference data is to use `dput` function. It prints object's structure to terminal, so
+it is just about copy-pasting from ther to our test script, see example:
+
+```{r}
+library(dplyr)
+result <- band_members %>% inner_join(band_instruments)
+dput(result)
+```
+
+so unit test can be witten as:
+
+```{r}
+library(dplyr)
+ref_data <- structure(
+  list(
+    name = c("John", "Paul"),
+    band = c("Beatles",
+             "Beatles"),
+    plays = c("guitar", "bass")
+  ),
+  row.names = c(NA, -2L),
+  class = c("tbl_df", "tbl", "data.frame")
+)
+
+testthat::expect_equal(band_members %>% inner_join(band_instruments), ref_data)
+testthat::expect_identical(band_members %>% inner_join(band_instruments), ref_data)
+```
+
+* `.rds`/`.RData` - `dput` is useful form small _handy_ data, but imagine reference `data.frame` counting thousands of rows
+and pasted into test script...
+
+
+  <br>
+  <details>
+  <summary>Click to expand</summary>
+  ```{r}
+  dput(iris)
+  ```
+  </details>
+  <br>
+
+  In such cases it's worth keeping reference data in R formats such as `.rds`/`.RData`.
+
+
+* Why should we care?
+* How to prepare reference data
+  * `dput`, `.Rdata`/`.RDS`, `.png` (because it's lossless)
+  * remember about `set.seed` when sampling some data (--> plotly task)
+  * `system.file`
+
+
+
