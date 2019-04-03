@@ -1,0 +1,33 @@
+---
+title: "Why do unit testing?"
+author: "Kamil Foltyński"
+date: "03/04/2019"
+output:
+  html_document:
+    fig_caption: yes
+    keep_md: no
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+runtime: shiny
+---
+
+
+# Why do unit testing?
+
+1. Ensures implemented changes, improvements, fixes doen't break anything
+  * Fixing specific feature may result in breaking some other functinality
+2. Saves time and reduces costs
+  * no need/reduced need for manual testing of code results
+3. Makes refactoring much easier and faster and reduces risk
+- sometimes some old feature needs to be redesigned and changind already working and tested code is risky,
+but when unit test are written it's much easier because we know what to expect, e.g. sepcific outputs 
+4. With unit test we get bonus: documentation :)
+- "documentation", but not literally - what I mean is that when we look at unit tests code we can easily learn 
+how some function or whole feature works, what input it accepts, what is the output and generally how it works
+
+# Sources
+
+
+

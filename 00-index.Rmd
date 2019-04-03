@@ -10,7 +10,7 @@ runtime: shiny
 Agenda:
 
 * Intro
-* Why do unit testing?
+* [Why do unit testing?](why-do-unit-testing.Rmd)
 * Correct R package structure? 
   * How to start if we don't have valid structure yet? `devtools::use_testthat()`
   * Common commands and shortcuts to run unit tests
