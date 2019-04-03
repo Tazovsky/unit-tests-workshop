@@ -11,7 +11,7 @@ Agenda:
 
 * Intro
 * [Why do unit testing?](why-do-unit-testing.Rmd)
-* Correct R package structure? 
+* [Correct R package structure](correct-structure.Rmd)
   * How to start if we don't have valid structure yet? `devtools::use_testthat()`
   * Common commands and shortcuts to run unit tests
     * Mention also about skipping tests, testing single files, whole dirs
