@@ -26,7 +26,6 @@ subsetTopNAndJoinDataTOresult <- function(list_data, data2join, key, top_n_rows 
   
   result <- subsetTopN(list_data, top_n_rows)
   
-  # join horse power to each element of list
   lapply(result, function(x) {
     x %>% left_join(data2join, by = key)
   })
