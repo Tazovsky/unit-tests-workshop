@@ -2,8 +2,13 @@
 
 export(compareImages)
 export(takeScreenshot)
+export(unify_case_type)
+import(data.table)
+importFrom(assertthat,assert_that)
 importFrom(data.table,data.table)
 importFrom(data.table,setkeyv)
+importFrom(futile.logger,flog.info)
+importFrom(futile.logger,flog.threshold)
 importFrom(grDevices,png)
 importFrom(plotly,orca)
 importFrom(png,readPNG)

@@ -15,4 +15,8 @@ Imports:
   webshot,
   grDevices,
   png,
-  data.table
+  data.table,
+  assertthat,
+  futile.logger
+Suggests: 
+    testthat
