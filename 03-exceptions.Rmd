@@ -143,16 +143,41 @@ But initial question was _**why should we care about exceptions?**_, so let's tr
 by verifying quality of function's arguments in first lines of its body
 2. Handling exceptions **saves time on debugging: 
 
-    Error message: `'x' argument is not data.frame class but numeric**_`
-    
-    is more understandable than
-    
-    `Error in UseMethod("left_join"): niestosowalna metoda dla 'left_join' zastosowana do obiektu klasy "c('double', 'numeric')"`, 
-    
-    isn't it? :)
+Error message: `'x' argument is not data.frame class but numeric**_`
+
+is more understandable than
+
+`Error in UseMethod("left_join"): niestosowalna metoda dla 'left_join' zastosowana do obiektu klasy "c('double', 'numeric')"`, 
+
+isn't it? :)
 
 
 # Testing exceptions
+
+Exceptions and error messages can also be tested. 
+And again it is about code behaviour control. By testing exceptions we expect that code will throw
+**specific error** in specific case. 
+For example, we can expect that on error further code execution will stop and won't insert do SQL database
+data frame full of thousands of `NA`s :)
+
+Exxample:
+
+```{r}
+testthat::context("subsetTopNAndJoinDataTOresult")
+testthat::test_that("throws error if input is 1 data frame", {
+  
+  df <- mtcars
+  df$car <- row.names(mtcars)
+  row.names(df) <- c()
+  df_hp <- df[, c("car", "hp")]
+  df <- df[!names(df) %in% "hp"]
+  
+  testthat::expect_error(
+    unitTestsWorkshopPackage::subsetTopNAndJoinDataTOresult(list_data = df, data2join = df_hp, key = "car"),
+    regexp = ".*'x' argument is not data\\.frame class but numeric.*"
+  )
+})
+```
 
 
 # Practice
