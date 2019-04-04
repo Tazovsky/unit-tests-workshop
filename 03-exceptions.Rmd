@@ -162,7 +162,7 @@ data frame full of thousands of `NA`s :)
 
 Exxample:
 
-```{r}
+```{r,eval=TRUE}
 testthat::context("subsetTopNAndJoinDataTOresult")
 testthat::test_that("throws error if input is 1 data frame", {
   
