@@ -87,22 +87,25 @@ see more in [reference data part](04-reference-data.Rmd)
   * be careful with `expect_indentical` -  see example:
 
   ```{r, error=TRUE}
-  dt_iris <- data.table::data.table(iris)
+  testthat::test_that("iris as data.table is equal", {
   
-  testthat::expect_identical(dt_iris, data.table::data.table(iris))
-  testthat::expect_equal(dt_iris, data.table::data.table(iris))
-  
-  saveRDS(dt_iris, file = "dt_iris.RDS")
-  
-  # after reseting R session
-  dt_iris <- readRDS("dt_iris.RDS")
-  testthat::expect_identical(dt_iris, data.table::data.table(iris))
-  testthat::expect_equal(dt_iris, data.table::data.table(iris))
-  
-  str(dt_iris)
-  
-  attributes(dt_iris)$.internal.selfref
-  attributes(data.table::data.table(iris))$.internal.selfref
+    dt_iris <- data.table::data.table(iris)
+    
+    testthat::expect_identical(dt_iris, data.table::data.table(iris))
+    testthat::expect_equal(dt_iris, data.table::data.table(iris))
+    
+    saveRDS(dt_iris, file = "dt_iris.RDS")
+    
+    # after reseting R session
+    dt_iris <- readRDS("dt_iris.RDS")
+    testthat::expect_identical(dt_iris, data.table::data.table(iris))
+    testthat::expect_equal(dt_iris, data.table::data.table(iris))
+    
+    str(dt_iris)
+    
+    attributes(dt_iris)$.internal.selfref
+    attributes(data.table::data.table(iris))$.internal.selfref
+  })
   ```
   
   because it also compares objects' attributes
@@ -115,11 +118,14 @@ see more in [reference data part](04-reference-data.Rmd)
 
 # Practice
 
-1. clone example repo
+## Task #1
 
-2. create `testthat` structure
+* clone example repo `https://github.com/Tazovsky/unit-tests-workshop`
+* create `testthat` structure
 
-3. capture function logs
+## Task #2
+
+* Test log output of function `unitTestsWorkshopPackage::unify_case_type`
 
 # Sources
 
