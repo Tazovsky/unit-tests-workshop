@@ -11,6 +11,8 @@ printHead <- function(x) {
 }
 
 lapply(as.list(df), printHead)
+lapply(df, printHead)
+
 
 
 # solution
@@ -26,6 +28,17 @@ printHead2 <- function(df) {
 
 printHead2(mtcars)
 printHead2(list(mtcars, iris))
+
+
+df <- USArrests
+df$State <- factor(row.names(USArrests))
+row.names(df) <- c()
+# split data frame
+murders <- df[, c("State", "Murder")]
+df <- df[!names(df) %in% names(murders)]
+
+# lets create function to convert factors to character
+
 
 
 
