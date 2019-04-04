@@ -8,6 +8,7 @@
 #' @param key 
 #' @param top_n_rows 
 #'
+#' @importFrom dplyr left_join %>%
 #' @return list
 #' @export
 #'

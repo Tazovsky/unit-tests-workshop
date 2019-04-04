@@ -157,11 +157,16 @@ by verifying quality of function's arguments in first lines of its body
 
 # Practice
 
-## 2
+## Task 1
 
-```{r}
+Suggest validation of `unitTestsWorkshopPackage::subsetTopNAndJoinDataTOresult` argument
 
-```
+## Task 2
+
+Handle and test exceptions when:
+
+* `list_data` and `data2join` have 0 rows
+* 
 
 
 
