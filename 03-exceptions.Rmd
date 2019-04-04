@@ -152,18 +152,12 @@ by verifying quality of function's arguments in first lines of its body
     isn't it? :)
 
 
-```{r}
-df <- mtcars
-inherits(df, "data.frame")
-inherits(as.list(df), "data.frame")
-```
+# Testing exceptions
 
 
-# Exception handling
+# Practice
 
-# Exception testing
-
-* When we can except
+## 2
 
 ```{r}
 
