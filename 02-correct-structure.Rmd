@@ -71,6 +71,8 @@ Run tests: `Ctrl+Shift+T` (Windows/Linux) or `Cmd+Shift+T` (Mac)
 Typical RStudio workflow:
 
 * Write function
+* If reference data from file is used then rebuild package (`Ctrl+Shift+B`), 
+see more in [reference data part](04-reference-data.Rmd)
 * Run tests: `Ctrl+Shift+T`
   * if tests passed then continue
   * else make fixes in function and run tests `Ctrl+Shift+T`
