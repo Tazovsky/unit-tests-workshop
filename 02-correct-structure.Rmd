@@ -112,7 +112,7 @@ see more in [reference data part](04-reference-data.Rmd)
 
 * `testthat::skip_if`, `testthat::skip_if_not`
   * tests can be skipped, for example some test may not be valid on specific envornment:
-    * **example #1**: if we running code locally we may not have access to production DB and we use local one which has different type, e.g. is conainerized
+    * **example #1**: if we running code locally we may not have access to production DB and we use local one which has different type, e.g. is containerized
     * **example #2**: locally LDAP authetntication doesn't work, so we can't test reading login anywhere else than on server
 * `testthat::capture_messages` log messages can also be tested
 
@@ -129,8 +129,8 @@ see more in [reference data part](04-reference-data.Rmd)
 
 ## Task #3
 
-Use `testthat::expect_equal` and `testthat::expect_identical`, **but** save expected data to `rds` file.
-
+Use `testthat::expect_equal` and `testthat::expect_identical`, **but** save expected data to `rds` file
+and compare it only after reading `readRDS`.
 
 # Sources
 
