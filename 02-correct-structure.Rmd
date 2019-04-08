@@ -84,7 +84,6 @@ see more in [reference data part](04-reference-data.Rmd)
 * `testthat::expect_true(object/contition)`
 * `testthat::expect_equal(object, expected)`
 * `testthat::expect_indentical(object, expected)`
-  * be careful with `expect_indentical` -  see example:
 
   ```{r, error=TRUE}
   testthat::test_that("iris as data.table is equal", {
@@ -94,17 +93,6 @@ see more in [reference data part](04-reference-data.Rmd)
     testthat::expect_identical(dt_iris, data.table::data.table(iris))
     testthat::expect_equal(dt_iris, data.table::data.table(iris))
     
-    saveRDS(dt_iris, file = "dt_iris.RDS")
-    
-    # after reseting R session
-    dt_iris <- readRDS("dt_iris.RDS")
-    testthat::expect_identical(dt_iris, data.table::data.table(iris))
-    testthat::expect_equal(dt_iris, data.table::data.table(iris))
-    
-    str(dt_iris)
-    
-    attributes(dt_iris)$.internal.selfref
-    attributes(data.table::data.table(iris))$.internal.selfref
   })
   ```
   
@@ -114,7 +102,7 @@ see more in [reference data part](04-reference-data.Rmd)
   * tests can be skipped, for example some test may not be valid on specific envornment:
     * **example #1**: if we running code locally we may not have access to production DB and we use local one which has different type, e.g. is containerized
     * **example #2**: locally LDAP authetntication doesn't work, so we can't test reading login anywhere else than on server
-* `testthat::capture_messages` log messages can also be tested
+* `testthat::capture_messages` log messages or meassages printed to terminal can also be tested
 
 # Practice
 
