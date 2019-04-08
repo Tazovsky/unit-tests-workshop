@@ -146,22 +146,21 @@ For example, if we go back to plotly unit test, the whole test could look like t
       unitTestsWorkshopPackage::takeScreenshot(p, target.path)
     }
   })
-  ```
+```
   
   so to recreate reference screenshot just set `RECREATE_REF_DATA` to `TRUE` and run test.
 
 # Practice
 
-test `renderPlot` output; boxplot with jitter
+## Task #1
+  
+Test output of function `unitTestsWorkshopPackage::renderBoxplot`. 
 
-
-
-
-* Why should we care?
-* How to prepare reference data
-  * `dput`, `.Rdata`/`.RDS`, `.png` (because it's lossless)
-  * remember about `set.seed` when sampling some data (--> plotly task)
-  * `system.file`
-
-
+  * Use following code as input data:
+```{r,eval=FALSE}
+dat <- data.frame(xval = sample(100, 1000, replace = TRUE),
+                  group = as.factor(sample(c("a", "b", "c"), 1000, replace = TRUE)))
+```
+  * Use `unitTestsWorkshopPackage::takeScreenshot` to prepare reference plot
+  * Use function `unitTestsWorkshopPackage::compareImages` to test output
 
