@@ -19,8 +19,6 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 
 # What is exception?
 
-Definition:
-
 > Definition: An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions.
 
 # Why should we care?
@@ -29,7 +27,7 @@ Let's see example first:
 
 ```{r,error=TRUE}
 library(dplyr)
-# prepare data
+# prepare test data
 df <- mtcars
 df$car <- row.names(mtcars)
 row.names(df) <- c()
@@ -63,11 +61,11 @@ subsetTopNAndJoinDataTOresult <- function(list_data, data2join, key, top_n_rows 
 result <- subsetTopNAndJoinDataTOresult(list_data = df.list, data2join = df_hp, key = "car")
 result # everything went well :)
 
-# ...but imagine list_data argument is not even a list - it is just ONE data frame
+# ...but imagine that list_data argument is not even a list - it is just ONE data frame
 result2 <- subsetTopNAndJoinDataTOresult(list_data = df1, data2join = df_hp, key = "hp")
 ```
 
-The problem is that both `data.frame` and `list`:
+The problem is that `df` is both `data.frame` and `list`:
 
 ```{r}
 df <- mtcars
@@ -141,7 +139,7 @@ But initial question was _**why should we care about exceptions?**_, so let's tr
 
 1. We have **more control over the code** behaviour. We can notice problem quicker, for example
 by verifying quality of function's arguments in first lines of its body
-2. Handling exceptions **saves time on debugging: 
+2. Handling exceptions **saves time on debugging**: 
 
 Error message: `'x' argument is not data.frame class but numeric**_`
 
@@ -160,7 +158,7 @@ And again it is about code behaviour control. By testing exceptions we expect th
 For example, we can expect that on error further code execution will stop and won't insert do SQL database
 data frame full of thousands of `NA`s :)
 
-Exxample:
+Example:
 
 ```{r,error=TRUE}
 testthat::context("subsetTopNAndJoinDataTOresult")
