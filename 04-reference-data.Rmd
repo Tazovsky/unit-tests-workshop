@@ -25,12 +25,12 @@ and if they must change, let them change into a way we control.
 Reference data is used as input for unit tests. It's frozen, so it ensures **reproducibility** of results.
 During development process **code changes**, but thanks to **reproducibility** it is possible to run 
 code (with reference data as input) and **always get same, unchanged results**. However if results vary, then
-it's a sign something went wrong and code is broken.
+it's a sign something went wrong and code is probably broken.
 
 # How to prepare reference data?
 
 * `dput` - the easiest way to prepare reference data is to use `dput` function. It prints object's structure to terminal, so
-it is just about copy-pasting from ther to our test script, see example:
+it is just about copy-pasting from there to our test script, see example:
 
 ```{r}
 library(dplyr)
@@ -40,22 +40,26 @@ dput(result)
 
 so unit test can be witten as:
 
-  ```{r}
-  library(dplyr)
-  ref_data <- structure(
-    list(
-      name = c("John", "Paul"),
-      band = c("Beatles",
-               "Beatles"),
-      plays = c("guitar", "bass")
-    ),
-    row.names = c(NA, -2L),
-    class = c("tbl_df", "tbl", "data.frame")
-  )
+```{r}
+library(dplyr)
+ref_data <- structure(
+  list(
+    name = c("John", "Paul"),
+    band = c("Beatles",
+             "Beatles"),
+    plays = c("guitar", "bass")
+  ),
+  row.names = c(NA, -2L),
+  class = c("tbl_df", "tbl", "data.frame")
+)
+
+testthat::expect_equal(band_members %>% inner_join(band_instruments), ref_data)
+testthat::expect_identical(band_members %>% inner_join(band_instruments), ref_data)
+```
   
-  testthat::expect_equal(band_members %>% inner_join(band_instruments), ref_data)
-  testthat::expect_identical(band_members %>% inner_join(band_instruments), ref_data)
-  ```
+  BTW: `dput` is also recommended way to provide Minimal Working Example (MWE) when 
+  asking on [stackoverflow.com](https://stackoverflow.com).
+  
 
 * `.rds`/`.RData` - `dput` is useful form small _handy_ data, but imagine reference `data.frame` counting thousands of rows
 and pasted into test script...
@@ -79,28 +83,28 @@ and pasted into test script...
   
   To get path to reference data `system.file` functionshould be used:
   
-  ```{r,eval=FALSE}
-  ref_data <- system.file(file.path("testdata", "test_data.rds"), package = "SpendWorx")
-  testthat::expect_equal(functionTotest(), ref_data)
-  ```
+```{r,eval=FALSE}
+ref_data <- system.file(file.path("testdata", "test_data.rds"), package = "SpendWorx")
+testthat::expect_equal(functionTotest(), ref_data)
+```
   
 * `snapshot`/`screenshot` - sometimes we want to would like to test output from plotting function. 
 The simplest way to do that is comparing screenshots of plot:
 
-  ```{r,eval=FALSE}
-  testthat::context("Testing plot(s) output")
-  
-  testthat::test_that("plotly renders correctly", {
-  library(plotly)
-  
-  target.path <- file.path("inst", "testdata", "plot1.png") 
-  
-  p <- economics %>% plot_ly(x = ~date, y = ~unemploy/pop) %>% add_lines()
-  
-  # compareImages function already contains testing function testthat::expect_lte
-  unitTestsWorkshopPackage::compareImages(takeScreenshot(p), target.path)
-  })
-  ```
+```{r,eval=FALSE}
+testthat::context("Testing plot(s) output")
+
+testthat::test_that("plotly renders correctly", {
+library(plotly)
+
+target.path <- file.path("inst", "testdata", "plot1.png") 
+
+p <- economics %>% plot_ly(x = ~date, y = ~unemploy/pop) %>% add_lines()
+
+# compareImages function already contains testing function testthat::expect_lte
+unitTestsWorkshopPackage::compareImages(takeScreenshot(p), target.path)
+})
+```
 
 # Recreating reference data
 
