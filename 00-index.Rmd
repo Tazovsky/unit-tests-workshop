@@ -33,9 +33,6 @@ Agenda:
   * Practical task
 * [Reference data](04-reference-data.Rmd)
 * [How to test?](05-how-to-test.Rmd)
-  * split big functionalities into separate test, e.g. 1st test connection to db, 2nd test function on prepared ref data from db
-  * expect, expect, expect
-  * code coverage
 * [Test driven development](06-test-driven-development.Rmd)
   * What is that?
   * When to use - examples
