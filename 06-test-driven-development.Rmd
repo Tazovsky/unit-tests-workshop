@@ -1,0 +1,26 @@
+---
+title: "Test driven development"
+author: "Kamil Foltyński"
+date: "09/04/2019"
+output:
+  html_document:
+    fig_caption: yes
+    keep_md: no
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+runtime: shiny
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = ">")
+```
+
+# What is test driven development?
+
+# Why/when to use?
+
+# Practice
+
+## Task #1
