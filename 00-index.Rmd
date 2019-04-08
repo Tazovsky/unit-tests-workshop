@@ -10,10 +10,14 @@ runtime: shiny
 Agenda:
 
 * Intro
-  * Instal helper R package: 
-  ```{r,eval=FALSE}
-  devtools::install("unitTestsWorkshopPackage/")
-  ```
+  * Clone repo:
+    ```{bash,eval=FALSE}
+    git clone git@github.com:Tazovsky/unit-tests-workshop.git
+    ```
+  * Instal helper R package:
+    ```{r,eval=FALSE}
+    devtools::install("unitTestsWorkshopPackage/")
+    ```
 * [Why do unit testing?](01-why-do-unit-testing.Rmd)
 * [Correct R package structure](02-correct-structure.Rmd)
   * How to start if we don't have valid structure yet? `devtools::use_testthat()`
