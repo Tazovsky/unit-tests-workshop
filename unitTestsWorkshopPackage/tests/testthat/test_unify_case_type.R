@@ -10,9 +10,9 @@ testthat::test_that("log output is correct", {
   )
   
   testthat::expect_equal(
-    gsub("\\[.*\\]", "XXX", 
+    gsub("\\[.*\\]", "", 
          testthat::capture_output_lines(unify_case_type(data, cols2lower = c("a", "b"), cols2upper = "c"))),
-    gsub("\\[.*\\]", "XXX", expected_output)
+    gsub("\\[.*\\]", "", expected_output)
   )
   
 })
