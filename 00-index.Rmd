@@ -1,7 +1,7 @@
 ---
-title: "Unit tests workshops"
+title: "Unit tests workshop"
 author: "Kamil Foltyński"
-date: "11/12/2018"
+date: "03/04/2019"
 output:
   html_document
 runtime: shiny
