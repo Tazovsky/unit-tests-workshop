@@ -184,7 +184,7 @@ testthat::test_that("throws error if input is 1 data frame", {
 
 ## Task 1
 
-Suggest validation of `unitTestsWorkshopPackage::subsetTopNAndJoinDataTOresult` argument
+Suggest validation of `unitTestsWorkshopPackage::subsetTopNAndJoinDataTOresult` arguments
 
 ## Task 2
 
