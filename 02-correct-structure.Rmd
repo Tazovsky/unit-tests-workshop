@@ -127,6 +127,11 @@ see more in [reference data part](04-reference-data.Rmd)
 
 * Test log output of function `unitTestsWorkshopPackage::unify_case_type`
 
+## Task #3
+
+Use `testthat::expect_equal` and `testthat::expect_identical`, **but** save expected data to `rds` file.
+
+
 # Sources
 
 * http://r-pkgs.had.co.nz/tests.html
