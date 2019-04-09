@@ -14,7 +14,7 @@ Agenda:
     ```{bash,eval=FALSE}
     git clone git@github.com:Tazovsky/unit-tests-workshop.git
     ```
-  * Instal helper R package:
+  * Install helper R package:
     ```{r,eval=FALSE}
     devtools::install("unitTestsWorkshopPackage/")
     ```
