@@ -34,10 +34,3 @@ Agenda:
 * [Reference data](04-reference-data.Rmd)
 * [How to test?](05-how-to-test.Rmd)
 * [Test driven development](06-test-driven-development.Rmd)
-  * What is that?
-  * When to use - examples
-* [R packages](r-packages.Rmd)
-
-TODOs:
-
-    
