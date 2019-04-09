@@ -19,8 +19,31 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 
 # What is test driven development?
 
+It is development technique where new feature starts with wirting unit tests, so development cycle is:
+
+1. Write new unit tests (`tests/testthat/test_new_feature.R`)
+2. Run all tests (including old ones) and make sure that new tests fail (`Ctrl+Shift+T` or `devtools::test()`)
+3. Write feature code (`R/new_feature.R`) and verify whether tests pass (`Ctrl+Shift+T` or `devtools::test()`)
+4. If tests pass, new feature's code met requirements and did not break any old features,
+else new code must be improved (fix code in `R/new_feature.R`) and **cycle repeated** (start from `#1` again)
+
 # Why/when to use?
 
-# Practice
+This technique requires developer to understand feature's requirement and specification.
 
-## Task #1
+# Real life example(s)
+
+* SpendWorx case: when we were moving data from `.csv` file to `PostgreSQL` database. 
+We knew exactly what were the requirements, be we knew output data
+* SpendWorx case: when refactoring code to fit Shiny modules - again we know what are requirements 
+both from UI and server sides
+
+# Why it is not often used in practice?
+
+* Fast growing apps are usually focused on effect. In such apps some time we don't know exactly what are the requirements,
+because important part of development process is research and testing best _made-to-measure_ solutions. 
+~~Bugs then are acceptable and cost of fixing them included in development process.~~
+* To much `TDD` makes our life harder. It may happen that we will have too many _high-level_, too detailed tests which
+may mean that our test code will require as much maintenance as production code.
+* Onbarding of new developers may cost more - especially when they are less experienced
+
