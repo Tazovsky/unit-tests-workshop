@@ -17,6 +17,8 @@ runtime: shiny
 knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 ```
 
+# Why do unit testing?
+
 1. Ensures implemented changes, improvements, fixes doen't break anything that already exists and works
     * Fixing specific feature may result in breaking some other functinality
 2. Saves time and reduces costs
