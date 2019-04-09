@@ -17,11 +17,6 @@ runtime: shiny
 knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 ```
 
-* How to start if we don't have valid structure yet? `devtools::use_testthat()`
-  * Common commands and shortcuts to run unit tests
-    * Mention also about skipping tests, testing single files, whole dirs
-
-
 # `testthat` - R package for unit testing
 
 Package `testthat` provides framework and multiple functions for unit testing. To start using it 
@@ -45,21 +40,19 @@ spendworx
 where `tests` directory and its content can be created using `devtools::use_testthat()` if not exists. 
 Test script names must start with **test**.
 
-Test files should contain `content` whis is short decription of its content. 
-To create test we use `test_that` function.
+Test files should contain `testthat::context` which is short decription of its content. 
+To create test we use `testthat::test_that` function.
 
 Example test:
 
-```r
-context("String length")
-library(stringr)
+```{r}
+testthat::context("String length")
 
-test_that("str_length is number of characters", {
-  expect_equal(str_length("a"), 1)
-  expect_equal(str_length("ab"), 2)
-  expect_equal(str_length("abc"), 3)
+testthat::test_that("str_length is number of characters", {
+  testthat::expect_equal(stringr::str_length("a"), 1)
+  testthat::expect_equal(stringr::str_length("ab"), 2)
+  testthat::expect_equal(stringr::str_length("abc"), 3)
 })
-
 ```
 
 # Make life easier in RStudio
@@ -77,7 +70,7 @@ see more in [reference data part](04-reference-data.Rmd)
   * if tests passed then continue
   * else make fixes in function and run tests `Ctrl+Shift+T`
 
-... and repeat until all unit tests work.
+...and repeat until all unit tests work.
 
 # `testthat` functions
 
@@ -85,24 +78,22 @@ see more in [reference data part](04-reference-data.Rmd)
 * `testthat::expect_equal(object, expected)`
 * `testthat::expect_indentical(object, expected)`
 
-  ```{r, error=TRUE}
-  testthat::test_that("iris as data.table is equal", {
-  
-    dt_iris <- data.table::data.table(iris)
-    
-    testthat::expect_identical(dt_iris, data.table::data.table(iris))
-    testthat::expect_equal(dt_iris, data.table::data.table(iris))
-    
-  })
-  ```
-  
-  because it also compares objects' attributes
+```{r, error=TRUE}
+testthat::test_that("iris as data.table is equal", {
 
+  dt_iris <- data.table::data.table(iris)
+  
+  testthat::expect_identical(dt_iris, data.table::data.table(iris))
+  testthat::expect_equal(dt_iris, data.table::data.table(iris))
+  
+})
+```
+  
 * `testthat::skip_if`, `testthat::skip_if_not`
-  * tests can be skipped, for example some test may not be valid on specific envornment:
+  * tests can be skipped, for example some tests may not be valid on specific envornment:
     * **example #1**: if we running code locally we may not have access to production DB and we use local one which has different type, e.g. is containerized
     * **example #2**: locally LDAP authetntication doesn't work, so we can't test reading login anywhere else than on server
-* `testthat::capture_messages` log messages or meassages printed to terminal can also be tested
+* `testthat::capture_messages` - log messages or meassages printed to terminal can also be tested
 
 # Practice
 
