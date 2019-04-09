@@ -20,17 +20,7 @@ Agenda:
     ```
 * [Why do unit testing?](01-why-do-unit-testing.Rmd)
 * [Correct R package structure](02-correct-structure.Rmd)
-  * How to start if we don't have valid structure yet? `devtools::use_testthat()`
-  * Common commands and shortcuts to run unit tests
-    * Mention also about skipping tests, testing single files, whole dirs
-  * Practical task
-  * Test structure
-    * `testthat` functions
 * [Exceptions](03-exceptions.Rmd)
-  * Why should we care?
-  * Catching exceptions - examples
-  * Testing exceptions
-  * Practical task
 * [Reference data](04-reference-data.Rmd)
 * [How to test?](05-how-to-test.Rmd)
 * [Test driven development](06-test-driven-development.Rmd)
