@@ -5,8 +5,8 @@
 #' @param dat data.frame
 #' @param jitter numeric
 #'
-#' @return
-#' @export plotly
+#' @return \code{plotly} object
+#' @import plotly
 #'
 #' @examples
 #' \dontrun{

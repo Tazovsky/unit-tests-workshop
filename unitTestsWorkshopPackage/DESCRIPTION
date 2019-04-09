@@ -17,6 +17,9 @@ Imports:
   png,
   data.table,
   assertthat,
-  futile.logger
+  futile.logger,
+  dplyr,
+  testthat
 Suggests: 
-    testthat
+  roxygen2,
+  knitr

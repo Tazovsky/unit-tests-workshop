@@ -9,7 +9,6 @@
 #' tries to guess using \code{inherits(p, "plotly")} by default
 #' @return path to file
 #' 
-#' @importFrom plotly orca
 #' @importFrom grDevices png
 #' @export
 #' @author Kamil Foltyński

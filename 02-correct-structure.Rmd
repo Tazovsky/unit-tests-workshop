@@ -55,6 +55,12 @@ testthat::test_that("str_length is number of characters", {
 })
 ```
 
+## How to test R package
+
+* All tests in package: `devtools::test("unitTestsWorkshopPackage/")`
+* Single test file: `testthat::test_file("unitTestsWorkshopPackage/tests/testthat/test_unify_case_type.R")`
+* 
+
 # Make life easier in RStudio
 
 Shortcuts:

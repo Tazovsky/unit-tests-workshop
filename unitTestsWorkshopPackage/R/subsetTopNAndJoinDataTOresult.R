@@ -20,7 +20,7 @@ subsetTopNAndJoinDataTOresult <- function(list_data, data2join, key, top_n_rows 
       if (!is.data.frame(x))
         stop(sprintf("'x' argument is not data.frame class but %s", class(x)))
       
-      head(x, n)
+      utils::head(x, n)
     })
   }
   
