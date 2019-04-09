@@ -117,7 +117,8 @@ see more in [reference data part](04-reference-data.Rmd)
 
 ## Task #3
 
-Use `testthat::expect_equal` and `testthat::expect_identical`, **but** save expected data to `rds` file
+Use `testthat::expect_equal` and `testthat::expect_identical` to test 
+function `unitTestsWorkshopPackage::coerce2data.table`, **but** save expected data to `rds` file
 and compare it only after reading `readRDS`.
 
 # Sources
