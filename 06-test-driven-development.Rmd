@@ -1,5 +1,5 @@
 ---
-title: "Test driven development"
+title: "Test Driven Development"
 author: "Kamil Foltyński"
 date: "09/04/2019"
 output:
@@ -17,7 +17,7 @@ runtime: shiny
 knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 ```
 
-# What is test driven development?
+# What is Test Driven Development (`TDD`)?
 
 It is development technique where new feature starts with wirting unit tests, so development cycle is:
 
