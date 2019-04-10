@@ -22,5 +22,6 @@ Agenda:
 * [Correct R package structure](02-correct-structure.Rmd)
 * [Exceptions](03-exceptions.Rmd)
 * [Reference data](04-reference-data.Rmd)
-* [How to test?](05-how-to-test.Rmd)
-* [Test driven development](06-test-driven-development.Rmd)
+* [Test driven development](05-test-driven-development.Rmd)
+* [How to test?](06-how-to-test.Rmd)
+
