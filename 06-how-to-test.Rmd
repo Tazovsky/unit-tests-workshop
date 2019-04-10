@@ -58,4 +58,6 @@ There are also many CI/CD solutions online to track test coverage:
 
 ## Task #1
 
-Run `covr::package_coverage("unitTestsWorkshopPackage/")`
+1. Type `git fetch origin master` and then git checkout `master`
+2. Run `covr::report(package_coverage("unitTestsWorkshopPackage/"))`
+3. Try to write unit test to insrease `unitTestsWorkshopPackage` test coverage to 100%
