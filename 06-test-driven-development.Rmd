@@ -42,7 +42,6 @@ both from UI and server sides
 
 * Fast growing apps are usually focused on effect. In such apps some time we don't know exactly what are the requirements,
 because important part of development process is research and testing best _made-to-measure_ solutions. 
-~~Bugs then are acceptable and cost of fixing them included in development process.~~
 * To much `TDD` makes our life harder. It may happen that we will have too many _high-level_, too detailed tests which
 may mean that our test code will require as much maintenance as production code.
 * Onbarding of new developers may cost more - especially when they are less experienced
