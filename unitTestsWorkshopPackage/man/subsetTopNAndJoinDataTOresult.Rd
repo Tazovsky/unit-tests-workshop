@@ -9,11 +9,11 @@ subsetTopNAndJoinDataTOresult(list_data, data2join, key, top_n_rows = 3)
 \arguments{
 \item{list_data}{list containing data.frames}
 
-\item{data2join}{}
+\item{data2join}{data.frame}
 
 \item{key}{}
 
-\item{top_n_rows}{}
+\item{top_n_rows}{top N rows to subset from every data.frame in list \code{list_data} argument}
 }
 \value{
 list

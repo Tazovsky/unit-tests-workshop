@@ -10,9 +10,10 @@
 #'
 #' @return data.table
 #' @export
-#' @examples 
-#' data <- data.table(a = c("X", "y", "Z"), b = c("a", "a", "Aa"), c = c("q", "w", "e"))
+#' @examples \dontrun{ 
+#' data <- data.table::data.table(a = c("X", "y", "Z"), b = c("a", "a", "Aa"), c = c("q", "w", "e"))
 #' data2 <- unify_case_type(data, cols2lower = c("a", "b"), cols2upper = "c")
+#' }
 unify_case_type <- function(DT_frame,  cols2lower, cols2upper ) {
   
   futile.logger::flog.threshold(futile.logger::DEBUG, name = "unify_case_type")

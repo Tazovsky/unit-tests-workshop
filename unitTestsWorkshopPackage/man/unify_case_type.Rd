@@ -20,6 +20,8 @@ data.table
 converts selected columns to UPPERCASE or LOWERCASE
 }
 \examples{
-data <- data.table(a = c("X", "y", "Z"), b = c("a", "a", "Aa"), c = c("q", "w", "e"))
+\dontrun{ 
+data <- data.table::data.table(a = c("X", "y", "Z"), b = c("a", "a", "Aa"), c = c("q", "w", "e"))
 data2 <- unify_case_type(data, cols2lower = c("a", "b"), cols2upper = "c")
+}
 }
