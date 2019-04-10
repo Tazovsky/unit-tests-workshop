@@ -52,3 +52,5 @@ There are also many CI/CD solutions online to track test coverage:
 # Practice 
 
 ## Task #1
+
+Run `covr::package_coverage("unitTestsWorkshopPackage/")`
