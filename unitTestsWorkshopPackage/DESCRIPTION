@@ -22,4 +22,5 @@ Imports:
   testthat
 Suggests: 
   roxygen2,
-  knitr
+  knitr,
+  covr
