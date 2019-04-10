@@ -24,14 +24,14 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 2. Saves time and reduces costs
     * no need/reduced need for manual testing of code results
 3. Makes refactoring much easier and faster and reduces risk
-    * sometimes some old feature needs to be redesigned and changind already working and tested code is risky,
+    * sometimes some old feature needs to be redesigned and changing already working and tested code is risky,
 but when unit test are written it's much easier because we know what to expect, e.g. sepcific outputs 
-4. With unit tests we get bonus: documentation :)
+4. With unit tests we get bonus: _documentation_ :)
     * _documentation_, but not literally - what I mean is that when we look at unit tests code we can easily learn 
 how some function or whole feature works, what input it accepts, what is the output, what _edge cases_ we can expect,
 what we need to be careful of, etc.
 5. Debug faster 
-    * Well unit tested code is a boost in debugging - when last commit breaks test(s) it means last code change should be investigated. Without unit tests we might not even know that something was broken before last commit and 
+    * Well unit tested code is a boost in debugging - when last commit breaks test(s) it means last code change should be investigated first. Without unit tests we might not even know that something was broken before last commit and 
 it is just coincidence we noticed that now
 
 # Sources
