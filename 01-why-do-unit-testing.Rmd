@@ -19,13 +19,15 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 
 # Why do unit testing?
 
-1. Ensures implemented changes, improvements, fixes doen't break anything that already exists and works
-    * Fixing specific feature may result in breaking some other functinality
+1. Existing unit tests ensures that implemented changes, improvements, fixes 
+doen't break anything that already exists and works
+    * Fixing specific feature may result in breaking some other functionality
 2. Saves time and reduces costs
     * no need/reduced need for manual testing of code results
 3. Makes refactoring much easier and faster and reduces risk
     * sometimes some old feature needs to be redesigned and changing already working and tested code is risky,
-but when unit test are written it's much easier because we know what to expect, e.g. sepcific outputs 
+but when unit test are written it's much easier because we know what to expect, 
+e.g. sepcific inputs, outputs or variable types
 4. With unit tests we get bonus: _documentation_ :)
     * _documentation_, but not literally - what I mean is that when we look at unit tests code we can easily learn 
 how some function or whole feature works, what input it accepts, what is the output, what _edge cases_ we can expect,

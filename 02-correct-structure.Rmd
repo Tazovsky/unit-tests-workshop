@@ -59,7 +59,6 @@ testthat::test_that("str_length is number of characters", {
 
 * All tests in package: `devtools::test("unitTestsWorkshopPackage/")`
 * Single test file: `testthat::test_file("unitTestsWorkshopPackage/tests/testthat/test_unify_case_type.R")`
-* 
 
 # Make life easier in RStudio
 
@@ -89,8 +88,13 @@ testthat::test_that("iris as data.table is equal", {
 
   dt_iris <- data.table::data.table(iris)
   
-  testthat::expect_identical(dt_iris, data.table::data.table(iris))
-  testthat::expect_equal(dt_iris, data.table::data.table(iris))
+  # function to be tested
+  make_data.table <- function(x) {
+    data.table::data.table(x)
+  }
+  
+  testthat::expect_identical(dt_iris, make_data.table(iris))
+  testthat::expect_equal(dt_iris, make_data.table(iris))
   
 })
 ```
@@ -99,7 +103,7 @@ testthat::test_that("iris as data.table is equal", {
   * tests can be skipped, for example some tests may not be valid on specific envornment:
     * **example #1**: if we running code locally we may not have access to production DB and we use local one which has different type, e.g. is containerized
     * **example #2**: locally LDAP authetntication doesn't work, so we can't test reading login anywhere else than on server
-* `testthat::capture_messages` - log messages or meassages printed to terminal can also be tested
+* `testthat::capture_messages` - messages or logs printed to terminal can also be tested
 
 # Practice
 
