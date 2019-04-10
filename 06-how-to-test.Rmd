@@ -17,11 +17,20 @@ runtime: shiny
 knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 ```
 
-  * split big functionalities into separate test, e.g. 1st test connection to db, 2nd test function on prepared ref data from db
-  * expect, expect, expect
-  * code coverage
+# How to write unit tests?
+
+* I really encourage to write unit test just after new code is written or while writing it. 
+The idea of new feature is still _warm_, _fresh_, generally well known for developer 
+and developer probably encountered some edge cases/expceptions. If developer postpone writing tests for few days, 
+then all of those will be probably forgotten (partially at least) 
+* split big functionalities into separate tests, e.g. 
+1st test: test connection to database, 
+2nd test: test function's output on prepared reference data from database
+* expect, expect, expect
   
-# Code coverage
+# How to measure tests coverage?
+
+We can use `covr` R package:
 
 ```{r}
 code_coverage_summary <- covr::package_coverage("unitTestsWorkshopPackage/")
@@ -30,11 +39,15 @@ code_coverage_summary
 
 To see nice report in `DT`:
 
+
 ```{r,eval=FALSE}
 covr::report(code_coverage_summary)
 ```
 
+There are also many CI/CD solutions online to track test coverage:
 
+* [`coveralls`](https://coveralls.io) - see example: https://coveralls.io/github/Tazovsky/cachemeR?branch=devel
+* [`codecov`](https://codecov.io)
 
 # Practice 
 
