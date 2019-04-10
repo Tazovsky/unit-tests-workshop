@@ -20,6 +20,21 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
   * split big functionalities into separate test, e.g. 1st test connection to db, 2nd test function on prepared ref data from db
   * expect, expect, expect
   * code coverage
+  
+# Code coverage
+
+```{r}
+code_coverage_summary <- covr::package_coverage("unitTestsWorkshopPackage/")
+code_coverage_summary
+```
+
+To see nice report in `DT`:
+
+```{r,eval=FALSE}
+covr::report(code_coverage_summary)
+```
+
+
 
 # Practice 
 

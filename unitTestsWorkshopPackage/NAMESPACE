@@ -2,6 +2,7 @@
 
 export(coerce2data.table)
 export(compareImages)
+export(renderBoxplot)
 export(subsetTopNAndJoinDataTOresult)
 export(takeScreenshot)
 export(unify_case_type)

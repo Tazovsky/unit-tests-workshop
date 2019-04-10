@@ -7,7 +7,7 @@
 #'
 #' @return \code{plotly} object
 #' @import plotly
-#'
+#' @export
 #' @examples
 #' \dontrun{
 #' dat <- data.frame(xval = sample(100, 1000, replace = TRUE),
