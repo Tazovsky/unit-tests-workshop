@@ -19,15 +19,20 @@ knitr::opts_chunk$set(collapse = TRUE, comment = ">")
 
 # How to write unit tests?
 
-* I really encourage to write unit test just after new code is written or while writing it. 
-The idea of new feature is still _warm_, _fresh_, generally well known for developer 
+* I really encourage to write unit tests just after new code is written or while writing it. 
+New feature is still _warm_, _fresh_, generally well known for developer 
 and developer probably encountered some edge cases/expceptions. If developer postpone writing tests for few days, 
 then all of those will be probably forgotten (partially at least) 
-* split big functionalities into separate tests, e.g. 
+* Split big functionalities into separate tests, e.g. 
 1st test: test connection to database, 
 2nd test: test function's output on prepared reference data from database
-* expect, expect, expect
-  
+* Take care of **reproducibility** - prepare tests so that the tested feature result can be repeated, 
+especially focus on preparging correct reference (expected) test data
+* Avoid test interdependence - each should be able to run independently - _on its own_; 
+imagine that tests can be run in parallel and should interfere with each other
+* Follow the **KISS** principle (**K**eep **I**t **S**hort and **S**imple) - keep tests as simple and clean as possible 
+to help other developers easily find out how tested feature works; there is also no need for making tests flexible, for example output, variable can be hard coded
+
 # How to measure tests coverage?
 
 We can use `covr` R package:
