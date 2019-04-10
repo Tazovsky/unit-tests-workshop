@@ -4,9 +4,9 @@
 #' and then join `data2join` to every element in that list by sepcified \code{key}
 #' 
 #' @param list_data list containing data.frames
-#' @param data2join 
+#' @param data2join data.frame
 #' @param key 
-#' @param top_n_rows 
+#' @param top_n_rows top N rows to subset from every data.frame in list \code{list_data} argument
 #'
 #' @importFrom dplyr left_join %>%
 #' @return list
