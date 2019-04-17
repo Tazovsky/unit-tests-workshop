@@ -30,3 +30,5 @@ output:
 ```{r child = '06-how-to-test.Rmd'}
 ```
 
+```{r child = '07-source-code.Rmd'}
+```
