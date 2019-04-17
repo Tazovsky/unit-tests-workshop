@@ -1,0 +1,32 @@
+---  
+title: "Unit tests workshop"
+author: "Kamil Foltyński"
+date: "11/04/2019"  
+site: bookdown::bookdown_site
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    toc: yes
+---
+
+```{r child = '00-index.Rmd'}
+```
+
+```{r child = '01-why-do-unit-testing.Rmd'}
+```
+
+```{r child = '02-correct-structure.Rmd'}
+```
+
+```{r child = '03-exceptions.Rmd'}
+```
+
+```{r child = '04-reference-data.Rmd'}
+```
+
+```{r child = '05-test-driven-development.Rmd'}
+```
+
+```{r child = '06-how-to-test.Rmd'}
+```
+
