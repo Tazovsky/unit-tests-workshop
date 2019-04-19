@@ -16,6 +16,7 @@ runtime: shiny
     ```
   * Install helper R package:
     ```{r,eval=FALSE}
+    # from cloned repository root directory run:
     devtools::install("unitTestsWorkshopPackage/")
     ```
 * [Why do unit testing?](01-why-do-unit-testing.Rmd)

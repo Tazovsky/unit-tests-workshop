@@ -7,6 +7,7 @@
     ```
   * Install helper R package:
     ```r
+    # from cloned repository root directory run:
     devtools::install("unitTestsWorkshopPackage/")
     ```
 
