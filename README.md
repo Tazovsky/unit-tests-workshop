@@ -10,7 +10,7 @@ This content regards unit testing- in particular in R programming language.
   * Install helper R package:
     ```r
     # from cloned repository root directory run:
-    devtools::install("unitTestsWorkshopPackage/")
+    devtools::install("unitTestsWorkshopPackage")
     ```
 
 ## Agenda
