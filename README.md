@@ -1,5 +1,7 @@
 # Unit tests workshop
 
+This content regards unit testing in R - in particular in R programming language.
+
 ## Auxiliary repository:
   * Clone repo:
     ```bash
