@@ -3,7 +3,7 @@
 ## Auxiliary repository:
   * Clone repo:
     ```bash
-    https://github.com/Tazovsky/unit-tests-workshop
+    git clone https://github.com/Tazovsky/unit-tests-workshop
     ```
   * Install helper R package:
     ```r
@@ -19,7 +19,7 @@
 * Test Driven Development
 * How to test?
 
-## Interactive documents
+## Start with **`00-index.Rmd`**
 
 I recommend starting with file **`00-index.Rmd`**, because all content is interactive.
 
